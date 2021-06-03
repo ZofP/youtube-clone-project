@@ -1,0 +1,62 @@
+.videoPlayer {
+  display: flex;
+  flex: 1 1 1e-9px;
+  flex-direction: column;
+  background: rgb(249, 249, 249);
+  &__player {
+    min-height: 480px;
+    background: #000;
+  }
+  &__content {
+    /* margin: 0 auto; */
+    display: flex;
+    justify-content: space-around;
+    // border: 1px solid black;
+  }
+  &__info {
+    padding: 20px 24px 8px 24px;
+    display: flex;
+    flex-direction: column;
+    flex: 65vw;
+  }
+  &__title {
+    font-size: 18px;
+    color: rgb(3, 3, 3);
+    line-height: 26px;
+  }
+  &__suggestions {
+    padding-top: 8px;
+  }
+  &__details {
+    display: flex;
+    justify-content: space-between;
+    color: rgb(96, 96, 96);
+  }
+  &__subtitle {
+    padding: 10px 0;
+    max-height: 20px;
+    font-size: 14px;
+    letter-spacing: 0.2px;
+  }
+  &__buttons {
+    display: flex;
+  }
+  &__button {
+    display: flex;
+    align-items: center;
+    > .MuiIconButton-root {
+      padding: 6px;
+      margin-left: 6px;
+    }
+    > .flip {
+      transform: scaleX(-1);
+    }
+  }
+  &__videoList {
+    display: flex;
+    flex-direction: column;
+    .videoCard__info {
+      padding: 0;
+    }
+  }
+}

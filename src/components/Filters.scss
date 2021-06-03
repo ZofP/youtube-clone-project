@@ -1,0 +1,67 @@
+.filters {
+  height: 56px;
+  display: flex;
+  padding-left: 18px;
+  position: sticky;
+  top: 56px;
+  background: white;
+  z-index: 99;
+  border-bottom: 1px solid lightgray;
+  &__button {
+    &.MuiButton-root {
+      border-radius: 16px;
+      background: rgba(0, 0, 0, 0.05);
+      color: rgb(3, 3, 3);
+      text-transform: capitalize;
+      margin: 12px 6px;
+      padding: 0 12px;
+      transition: background-color cubic-bezier(0.05, 0, 0, 1) 0.5s;
+      border: 1px solid lightgray;
+      &:hover {
+        background: rgba(0, 0, 0, 0.1);
+      }
+      &.active {
+        &.MuiButton-root {
+          border-radius: 16px;
+          background: #606060;
+          color: #fff;
+          text-transform: capitalize;
+          margin: 12px 6px;
+          padding: 0 12px;
+          transition: background-color cubic-bezier(0.05, 0, 0, 1) 0.5s;
+          &:hover {
+            background: #909090;
+          }
+        }
+      }
+    }
+  }
+}
+
+// .filters__button.MuiButton-root {
+//   border-radius: 16px;
+//   background: rgba(0, 0, 0, 0.05);
+//   color: rgb(3, 3, 3);
+//   text-transform: capitalize;
+//   margin: 12px 6px;
+//   padding: 0 12px;
+//   transition: background-color cubic-bezier(0.05, 0, 0, 1) 0.5s;
+//   border: 1px solid lightgray;
+// }
+// .filters__button.MuiButton-root:hover {
+//   background: rgba(0, 0, 0, 0.1);
+// }
+
+// .filters__button--active.MuiButton-root {
+//   border-radius: 16px;
+//   background: #606060;
+//   color: #fff;
+//   text-transform: capitalize;
+//   margin: 12px 6px;
+//   padding: 0 12px;
+//   transition: background-color cubic-bezier(0.05, 0, 0, 1) 0.5s;
+// }
+
+// .filters__button--active.MuiButton-root:hover {
+//   background: #909090;
+// }

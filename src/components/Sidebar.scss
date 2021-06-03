@@ -1,0 +1,33 @@
+.sidebar {
+  $component: &;
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 85px;
+  // flex: 0.05;
+  // width: 240px;
+  &--permanent {
+    > .MuiPaper-root {
+      top: 56px;
+      border: none;
+    }
+  }
+  &--open {
+    display: flex;
+    overflow: scroll;
+    // width: 240px;
+    flex: 0 0 240px;
+    #{$component}--permanent {
+      > .MuiPaper-root {
+        width: 240px;
+        padding: 12px 12px 12px 0;
+        > hr {
+          margin: 12px 0;
+        }
+        > p {
+          padding: 0 24px 8px 24px;
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,74 @@
+.sidebarRow {
+  $component: &;
+  padding: 16px 0 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &--open {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    #{$component}__button {
+      flex: 1;
+      padding: 0;
+      height: 100%;
+      &.selected {
+        > .MuiButton-label {
+          background: rgba(0, 0, 0, 0.2);
+          > .MuiSvgIcon-root {
+            color: #f00;
+          }
+          > p {
+            font-weight: bold;
+            font-family: "Roboto", "Noto", sans-serif;
+          }
+        }
+      }
+      > .MuiButton-label {
+        display: flex;
+        flex-direction: row;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1.8rem;
+        padding: 0 24px;
+        justify-content: flex-start;
+        height: 100%;
+        > .MuiSvgIcon-root {
+          margin-right: 24px;
+          color: rgb(96, 96, 96);
+        }
+      }
+    }
+  }
+  > .selected {
+    > .MuiButton-label {
+      color: #f00;
+    }
+  }
+  &__button {
+    > .MuiButton-label {
+      display: flex;
+      flex-direction: column;
+      text-transform: lowercase;
+      font-size: 10px;
+      font-weight: 400;
+      line-height: 1.4rem;
+      > p::first-letter {
+        text-transform: capitalize;
+      }
+    }
+    &.capitalized {
+      .MuiButton-label {
+        text-transform: none;
+        > p {
+          text-transform: capitalize;
+        }
+      }
+    }
+    &:hover {
+      background: rgba(0, 0, 0, 0.05);
+      cursor: pointer;
+    }
+  }
+}
