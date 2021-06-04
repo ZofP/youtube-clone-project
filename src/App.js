@@ -4,7 +4,7 @@ import Sidebar from "./components/Sidebar/Sidebar"
 import Home from "./pages/Home/Home"
 import Search from './pages/Search/Search';
 import VideoPlayer from './pages/VideoPlayer/VideoPlayer';
-import { Switch, Route, Redirect, useHistory } from "react-router-dom";
+import { Switch, Route, Redirect, useHistory, useLocation } from "react-router-dom";
 import { LinearProgress } from '@material-ui/core';
 import Login from './pages/Login/Login';
 import { useSelector } from 'react-redux';
@@ -15,20 +15,19 @@ const App = () => {
 
   const history = useHistory();
 
+  const { pathname } = useLocation()
+
   const { user, loading } = useSelector(state => state.auth)
 
   useEffect(() => {
-
     if (!loading && !user) {
       history.push("/login")
     }
-
   }, [user, loading, history])
 
 
   return (
     <div className="app">
-
       <Switch>
         <Route exact path="/">
           {/* <LinearProgress variant="determinate" value={progress} /> */}
@@ -47,7 +46,7 @@ const App = () => {
           <Login />
         </Route>
       </Switch>
-      <div className="app__body">
+      {pathname !== "/login" && <div className="app__body">
         <Switch>
           <Redirect exact from="/home" to="/" />
           <Route exact path="/">
@@ -65,7 +64,7 @@ const App = () => {
             <Sidebar />
           </Route>
         </Switch>
-      </div>
+      </div>}
 
     </div>
   );
