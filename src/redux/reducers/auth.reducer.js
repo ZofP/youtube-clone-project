@@ -1,4 +1,4 @@
-import { LOAD_PROFILE, LOGIN_FAIL, LOGIN_REQUEST, LOGIN_SUCCESS, LOG_OUT } from "../actionType"
+import { ANONYMOUS_LOG_OUT, LOAD_PROFILE, LOGIN_FAIL, LOGIN_REQUEST, LOGIN_SUCCESS, LOG_OUT } from "../actionType"
 
 const initialState = {
  accessToken: sessionStorage.getItem("youtube-clone-accessToken") ? sessionStorage.getItem("youtube-clone-accessToken") : null,
@@ -26,7 +26,12 @@ export const authReducer = (prevState = initialState, action) => {
    ...prevState, user: payload
   }
 
+
   case LOG_OUT:
+   return {
+    ...prevState, accessToken: null, user: null
+   }
+  case ANONYMOUS_LOG_OUT:
    return {
     ...prevState, accessToken: null, user: null
    }

@@ -3,7 +3,7 @@ import "./Sidebar.scss";
 
 import { Drawer, Divider } from "@material-ui/core";
 
-import SidebarRow from "./SidebarRow";
+import SidebarRow from "../SidebarRow/SidebarRow";
 
 import HomeIcon from "@material-ui/icons/Home";
 import ExploreIcon from "@material-ui/icons/Explore";
@@ -17,6 +17,7 @@ import YouTubeIcon from "@material-ui/icons/YouTube";
 import LocalMoviesIcon from "@material-ui/icons/LocalMovies";
 import SportsEsportsIcon from "@material-ui/icons/SportsEsports";
 import SportsIcon from "@material-ui/icons/Sports";
+import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 
 import { useSelector } from "react-redux";
 
@@ -72,6 +73,10 @@ const Sidebar = () => {
       title: "Sports",
       Icon: SportsIcon,
     },
+    {
+      title: "Sign Out",
+      Icon: ExitToAppIcon,
+    },
   ];
 
   return (
@@ -95,7 +100,7 @@ const Sidebar = () => {
 
             <Divider />
             <p>MORE FROM YOUTUBE</p>
-            {sidebarArray.slice(8, 12).map(({ title, Icon }, index) => (
+            {sidebarArray.slice(8, 13).map(({ title, Icon }, index) => (
               <SidebarRow title={title} Icon={Icon} key={index} />
             ))}
           </Drawer>

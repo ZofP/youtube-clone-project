@@ -5,7 +5,8 @@ import { Button } from "@material-ui/core";
 
 import { useHistory, useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { setMenuItem } from "../redux/actions/sidebar.actions";
+import { setMenuItem } from "../../redux/actions/sidebar.actions";
+import { anonymousLogout, logout } from "../../redux/actions/auth.actions";
 
 const SidebarRow = ({ title, Icon }) => {
   const [path, setPath] = useState("/");
@@ -20,6 +21,8 @@ const SidebarRow = ({ title, Icon }) => {
     (state) => state.sidebar
   );
 
+  const { user } = useSelector((state) => state.auth);
+
   const handleMenuSelect = () => {
     push(title === "Home" ? "/" : `/feed/${title.toLowerCase()}`);
     dispatch(setMenuItem(title));
@@ -28,6 +31,14 @@ const SidebarRow = ({ title, Icon }) => {
   useEffect(() => {
     setPath(title === "Home" ? "/" : pathname);
   }, [pathname, title]);
+
+  const handleLougout = (user) => {
+    if (user.email) {
+      dispatch(logout());
+    } else {
+      dispatch(anonymousLogout());
+    }
+  };
 
   return (
     // sidebar open
@@ -38,9 +49,10 @@ const SidebarRow = ({ title, Icon }) => {
             className={`sidebarRow__button
              ${title === selectedMenuItem ? "selected" : ""}
             ${title === "YouTube Premium" ? "capitalized" : ""}
+            ${title === "Sign Out" ? "capitalized red" : ""}
               `}
             disableRipple
-            onClick={handleMenuSelect}
+            onClick={title === "Sign Out" ? handleLougout : handleMenuSelect}
           >
             <Icon />
             <p>{title}</p>

@@ -13,8 +13,8 @@ import ThumbDownIcon from "@material-ui/icons/ThumbDown";
 import ReplyIcon from "@material-ui/icons/Reply";
 import PlaylistAddIcon from "@material-ui/icons/PlaylistAdd";
 import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
-import Filters from "../components/Filters";
-import VideoCard from "../components/VideoCard";
+import Filters from "../../components/Filters/Filters";
+import VideoCard from "../../components/VideoCard/VideoCard";
 
 const VideoPlayer = () => {
   const {

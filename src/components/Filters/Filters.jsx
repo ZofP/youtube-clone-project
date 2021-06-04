@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   getVideosByCategory,
   getPopularVideos,
-} from "../redux/actions/videos.actions";
+} from "../../redux/actions/videos.actions";
 
 const filtersArray = ["All", "Music", "Mixes", "Live"];
 

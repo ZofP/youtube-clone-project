@@ -7,13 +7,13 @@ import WatchLaterIcon from "@material-ui/icons/WatchLater";
 
 import AddToQueueIcon from "@material-ui/icons/PlaylistPlay";
 import { useHistory } from "react-router";
-import request from "../api";
+import request from "../../api";
 
 import moment from "moment";
 import numeral from "numeral";
 import { useDispatch, useSelector } from "react-redux";
-import { setCurrentVideo } from "../redux/actions/videos.actions";
-import { setMenuItem } from "../redux/actions/sidebar.actions";
+import { setCurrentVideo } from "../../redux/actions/videos.actions";
+import { setMenuItem } from "../../redux/actions/sidebar.actions";
 
 const VideoCard = ({ video }) => {
   const [channelAvatar, setChannelAvatar] = useState(null);

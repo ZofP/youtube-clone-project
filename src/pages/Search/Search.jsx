@@ -5,13 +5,13 @@ import TuneOutlinedIcon from "@material-ui/icons/TuneOutlined";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router";
 
-import { getVideosBySearch } from "../redux/actions/videos.actions";
-import VideoCard from "../components/VideoCard";
+import { getVideosBySearch } from "../../redux/actions/videos.actions";
+import VideoCard from "../../components/VideoCard/VideoCard";
 
 const Search = () => {
   const { query } = useParams();
 
-  const { videos, loading } = useSelector((state) => state.searchedVideos);
+  const { videos } = useSelector((state) => state.searchedVideos);
 
   const dispatch = useDispatch();
 

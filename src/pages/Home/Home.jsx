@@ -1,12 +1,12 @@
 import React, { useEffect } from "react";
 import "./Home.scss";
-import Filters from "../components/Filters";
+import Filters from "../../components/Filters/Filters";
 import { useDispatch, useSelector } from "react-redux";
 import {
   getPopularVideos,
   getVideosByCategory,
-} from "../redux/actions/videos.actions";
-import VideoCard from "../components/VideoCard";
+} from "../../redux/actions/videos.actions";
+import VideoCard from "../../components/VideoCard/VideoCard";
 
 import InfiniteScroll from "react-infinite-scroll-component";
 

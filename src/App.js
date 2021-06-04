@@ -1,12 +1,12 @@
 import './App.scss';
-import Header from "./components/Header"
-import Sidebar from "./components/Sidebar"
-import Home from "./pages/Home"
-import Search from './pages/Search';
-import VideoPlayer from './pages/VideoPlayer';
+import Header from "./components/Header/Header"
+import Sidebar from "./components/Sidebar/Sidebar"
+import Home from "./pages/Home/Home"
+import Search from './pages/Search/Search';
+import VideoPlayer from './pages/VideoPlayer/VideoPlayer';
 import { Switch, Route, Redirect, useHistory } from "react-router-dom";
 import { LinearProgress } from '@material-ui/core';
-import Login from './pages/Login';
+import Login from './pages/Login/Login';
 import { useSelector } from 'react-redux';
 import { useEffect } from 'react';
 
@@ -15,15 +15,15 @@ const App = () => {
 
   const history = useHistory();
 
-  const { accessToken, loading } = useSelector(state => state.auth)
+  const { user, loading } = useSelector(state => state.auth)
 
   useEffect(() => {
 
-    if (!loading && !accessToken) {
+    if (!loading && !user) {
       history.push("/login")
     }
 
-  }, [accessToken, loading, history])
+  }, [user, loading, history])
 
 
   return (

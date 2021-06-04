@@ -11,7 +11,7 @@ import store from './redux/store';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Router>
+    <Router basename="/youtube-clone-project">
 
       {/* redux */}
       <Provider store={store}>

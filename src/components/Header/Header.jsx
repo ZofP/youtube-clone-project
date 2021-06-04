@@ -13,7 +13,10 @@ import MicIcon from "@material-ui/icons/Mic";
 import { useHistory } from "react-router-dom";
 
 import { useDispatch, useSelector } from "react-redux";
-import { setMenuItem, toggleSidebar } from "../redux/actions/sidebar.actions";
+import {
+  setMenuItem,
+  toggleSidebar,
+} from "../../redux/actions/sidebar.actions";
 
 const useStyles = makeStyles({
   root: {

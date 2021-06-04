@@ -1,6 +1,6 @@
 import firebase from "firebase/app"
 import auth from "../../firebase"
-import { LOAD_PROFILE, LOGIN_FAIL, LOGIN_REQUEST, LOGIN_SUCCESS, LOG_OUT } from "../actionType"
+import { ANONYMOUS_LOG_OUT, LOAD_PROFILE, LOGIN_FAIL, LOGIN_REQUEST, LOGIN_SUCCESS, LOG_OUT } from "../actionType"
 
 export const login = () => async dispatch => {
  try {
@@ -11,7 +11,6 @@ export const login = () => async dispatch => {
   provider.addScope("https://www.googleapis.com/auth/youtube.force-ssl")
 
   const response = await auth.signInWithPopup(provider)
-
 
   const accessToken = response.credential.accessToken
 
@@ -44,11 +43,39 @@ export const login = () => async dispatch => {
  }
 }
 
+export const anonymousLogin = () => dispatch => {
+
+
+ const anonymousUser = {
+  profilePic: "",
+  username: "Anonymous User",
+  email: "",
+  displayName: "Anonymous User",
+  photoURL: "",
+ }
+ sessionStorage.setItem("youtube-clone-user", JSON.stringify(anonymousUser))
+
+ dispatch({
+  type: LOAD_PROFILE,
+  payload: anonymousUser
+ })
+
+
+}
+
 export const logout = () => async dispatch => {
 
  await auth.signOut()
 
  dispatch({ type: LOG_OUT })
+ sessionStorage.removeItem("youtube-clone-accessToken")
+ sessionStorage.removeItem("youtube-clone-user")
+
+}
+export const anonymousLogout = () => async dispatch => {
+
+
+ dispatch({ type: ANONYMOUS_LOG_OUT })
  sessionStorage.removeItem("youtube-clone-accessToken")
  sessionStorage.removeItem("youtube-clone-user")
 

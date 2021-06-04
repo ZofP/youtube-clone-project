@@ -25,6 +25,18 @@
           }
         }
       }
+      &.red {
+        > .MuiButton-label {
+          > .MuiSvgIcon-root {
+            color: #f00;
+          }
+          > p {
+            font-weight: bold;
+            font-family: "Roboto", "Noto", sans-serif;
+            color: #f00;
+          }
+        }
+      }
       > .MuiButton-label {
         display: flex;
         flex-direction: row;
@@ -46,6 +58,9 @@
       color: #f00;
     }
   }
+  // > .red {
+  //   color: #f00;
+  // }
   &__button {
     > .MuiButton-label {
       display: flex;
