@@ -41,6 +41,9 @@ const App = () => {
     else if (pathname.includes("/feed")) {
       dispatch(setMenuItem("Feed"))
     }
+    else {
+      dispatch(setMenuItem("Home"))
+    }
   }, [pathname, dispatch])
 
   return (
