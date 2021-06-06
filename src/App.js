@@ -7,8 +7,9 @@ import VideoPlayer from './pages/VideoPlayer/VideoPlayer';
 import { Switch, Route, Redirect, useHistory, useLocation } from "react-router-dom";
 import { LinearProgress } from '@material-ui/core';
 import Login from './pages/Login/Login';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
+import { setMenuItem } from './redux/actions/sidebar.actions';
 
 
 const App = () => {
@@ -17,7 +18,11 @@ const App = () => {
 
   const { pathname } = useLocation()
 
+  const dispatch = useDispatch();
+
   const { user, loading } = useSelector(state => state.auth)
+
+  const { selectedMenuItem } = useSelector(state => state.sidebar)
 
   useEffect(() => {
     if (!loading && !user) {
@@ -25,6 +30,18 @@ const App = () => {
     }
   }, [user, loading, history])
 
+
+  useEffect(() => {
+    if (pathname.includes("/search")) {
+      dispatch(setMenuItem("Search"))
+    }
+    else if (pathname.includes("/watch")) {
+      dispatch(setMenuItem("Watch"))
+    }
+    else if (pathname.includes("/feed")) {
+      dispatch(setMenuItem("Feed"))
+    }
+  }, [pathname, dispatch])
 
   return (
     <div className="app">

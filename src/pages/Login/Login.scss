@@ -6,19 +6,19 @@
   > div {
     > button {
       width: 300px;
-
       font-weight: 800;
       margin: 2px;
     }
     > .login__signIn {
-      background: #2e81f4;
+      background: red;
       color: #eff2f5;
+      &:hover {
+        background: white;
+        color: red;
+      }
     }
   }
-  &__signIn:hover {
-    background: white;
-    color: #2e81f4;
-  }
+
   &__logo {
     display: flex;
     flex-direction: column;
