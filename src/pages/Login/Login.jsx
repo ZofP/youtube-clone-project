@@ -47,8 +47,8 @@ const Login = () => {
       </div>
       <h3>
         <i>
-          This project was created with Firebase API. All trademarks rights
-          belong to Google.
+          This project utilizes Firebase and Redux. All trademarks, logos and
+          brand names are the property of their respective owners.
         </i>
       </h3>
     </div>
